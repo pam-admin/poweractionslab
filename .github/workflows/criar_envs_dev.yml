@@ -18,7 +18,7 @@ on:
      
      user_id:
      description: AAD object id for the user
-     required: true 
+     required: true
      default: [AAD object id]
    
  #Do Not change these values
@@ -47,7 +47,6 @@ jobs:
         type: Developer
         domain: ${{ github.event.inputs.env_name}}Desenvolvimento
         region: southamerica
-        managed: true
     
     - name: assign-user to developer environment
       uses:  microsoft/powerplatform-actions/assign-user@v0
