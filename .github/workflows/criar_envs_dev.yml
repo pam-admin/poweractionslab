@@ -13,7 +13,7 @@ on:
      user_id:
        description: AAD object id for the user
        required: true
-       default: AlexW@M365x98160609.OnMicrosoft.com
+       default: meganb@M365x98160609.OnMicrosoft.com
    
  #Do Not change these values
       
@@ -44,6 +44,7 @@ jobs:
         type: Developer
         domain: ${{ github.event.inputs.env_name}}Desenvolvimento
         region: southamerica
+        user: 69a7d995-e38b-46e0-b130-0e83d46f53e4
     
     - name: assign-user to developer environment
       uses:  microsoft/powerplatform-actions/assign-user@v1
