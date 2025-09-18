@@ -21,16 +21,20 @@ on:
 jobs:
   Create-Environments:
     runs-on: windows-latest
-    # or you can say runs-on: windows-latest
+    # or you can say runs-on: ubuntu-latest
     env:
       RUNNER_DEBUG: 1
 
     steps:
+    - uses: actions/checkout@v2
+      with:
+        lfs: true
+        
     - name: Install Power Platform Tools
-      uses: microsoft/powerplatform-actions/actions-install@v0
+      uses: microsoft/powerplatform-actions/actions-install@v1
       
     - name: Create Developer Environment
-      uses: microsoft/powerplatform-actions/create-environment@v0
+      uses: microsoft/powerplatform-actions/create-environment@v1
       with:
         app-id: ${{secrets.CLIENT_ID}}
         client-secret: ${{ secrets.PowerPlatformSPN }}
@@ -42,7 +46,7 @@ jobs:
         region: southamerica
     
     - name: assign-user to developer environment
-      uses:  microsoft/powerplatform-actions/assign-user@v0
+      uses:  microsoft/powerplatform-actions/assign-user@v1
       with:
         app-id: ${{secrets.CLIENT_ID}}
         client-secret: ${{ secrets.PowerPlatformSPN }}
