@@ -12,13 +12,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
         
-      - name: Install Power Plat Modules
-        run: |
-          Set-PSRepository PSGallery -InstallationPolicy Trusted
-          Install-Module -Name Microsoft.PowerApps.Administration.PowerShell -Force
-          Install-Module Microsoft.PowerApps.PowerShell -Force
-          Install-Module Microsoft.Xrm.Data.PowerShell -Force
-        shell: pwsh
+#      - name: Install Power Plat Modules
+ #       run: |
+  #        Set-PSRepository PSGallery -InstallationPolicy Trusted
+   #       Install-Module -Name Microsoft.PowerApps.Administration.PowerShell -Force
+    #      Install-Module Microsoft.PowerApps.PowerShell -Force
+     #     Install-Module Microsoft.Xrm.Data.PowerShell -Force
+      #  shell: pwsh
         
       - name: Run PowerShell script
         shell: pwsh
