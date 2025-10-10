@@ -17,9 +17,9 @@ jobs:
       # Step 2: Install the PowerShell module
       - name: Install PowerShell Module
         run: |
-          Install-Module -Name Microsoft.PowerApps.Administration.PowerShell -Force -Scope CurrentUser
-          Install-Module Microsoft.PowerApps.PowerShell -Force -Scope CurrentUser
-          Install-Module Microsoft.Xrm.Data.PowerShell -Force -Scope CurrentUser
+          Install-Module -Name Microsoft.PowerApps.Administration.PowerShell -Force -Scope CurrentUser -AllowClobber
+          Install-Module Microsoft.PowerApps.PowerShell -Force -Scope CurrentUser -AllowClobber
+          Install-Module Microsoft.Xrm.Data.PowerShell -Force -Scope CurrentUser -AllowClobber
         shell: pwsh
 
       # Step 3: Import the PowerShell module and run the script
