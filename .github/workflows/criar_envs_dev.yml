@@ -55,3 +55,13 @@ jobs:
         environment: 'https://${{ github.event.inputs.env_name}}Desenvolvimento.dynamics.com'
         user: ${{ github.event.inputs.user_id }}
         role: System Administrator
+
+    - name: assign-user to developer environment
+      uses:  microsoft/powerplatform-actions/assign-user@v1
+      with:
+        app-id: ${{secrets.CLIENT_ID}}
+        client-secret: ${{ secrets.PowerPlatformSPN }}
+        tenant-id: ${{secrets.TENANT_ID}}
+        environment: 'https://${{ github.event.inputs.env_name}}Desenvolvimento.dynamics.com'
+        user: ${{secrets.CLIENT_ID}}
+        role: System Administrator     
