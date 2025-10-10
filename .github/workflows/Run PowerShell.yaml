@@ -1,4 +1,4 @@
-name: Run PowerShell Script
+name: Run PowerShell Script with Module
 
 on:
   push:
@@ -7,20 +7,24 @@ on:
 
 jobs:
   run-powershell:
-    runs-on: windows-latest # Or 'windows-latest' if you need a Windows environment
+    runs-on: windows-latest
+
     steps:
+      # Step 1: Checkout the repository
       - name: Checkout code
         uses: actions/checkout@v3
-        
-#      - name: Install Power Plat Modules
- #       run: |
-  #        Set-PSRepository PSGallery -InstallationPolicy Trusted
-   #       Install-Module -Name Microsoft.PowerApps.Administration.PowerShell -Force
-    #      Install-Module Microsoft.PowerApps.PowerShell -Force
-     #     Install-Module Microsoft.Xrm.Data.PowerShell -Force
-      #  shell: pwsh
-        
-      - name: Run PowerShell script
-        shell: pwsh
+
+      # Step 2: Install the PowerShell module
+      - name: Install PowerShell Module
         run: |
-          ./PowerPlatSampleScript.ps1 # Replace with your script's path
+          Install-Module -Name Microsoft.PowerApps.Administration.PowerShell -Force -Scope CurrentUser
+          Install-Module Microsoft.PowerApps.PowerShell -Force -Scope CurrentUser
+          Install-Module Microsoft.Xrm.Data.PowerShell -Force -Scope CurrentUser
+        shell: pwsh
+
+      # Step 3: Import the PowerShell module and run the script
+      - name: Run PowerShell Script
+        run: |
+         # Import-Module -Name ModuleName
+          ./PowerPlatSampleScript.ps1
+        shell: pwsh
