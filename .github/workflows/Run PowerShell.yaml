@@ -24,4 +24,4 @@ jobs:
       - name: Run PowerShell script
         shell: pwsh
         run: |
-          ./PowerPlatSampleScript.ps1 # Replace with your script's path
+          ./github/workflows/PowerPlatSampleScript.ps1 # Replace with your script's path
