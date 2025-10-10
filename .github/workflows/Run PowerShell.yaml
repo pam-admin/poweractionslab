@@ -7,10 +7,12 @@ on:
 
 jobs:
   run-powershell:
-    runs-on: ubuntu-latest # Or 'windows-latest' if you need a Windows environment
+    runs-on: windows-latest # Or 'windows-latest' if you need a Windows environment
     steps:
-    
-      - name: Script
+      - name: Checkout code
+        uses: actions/checkout@v3
+        
+      - name: Install Power Plat Modules
         run: |
           Set-PSRepository PSGallery -InstallationPolicy Trusted
           Install-Module -Name Microsoft.PowerApps.Administration.PowerShell -Force
@@ -18,9 +20,6 @@ jobs:
           Install-Module Microsoft.Xrm.Data.PowerShell -Force
         shell: pwsh
         
-      - name: Checkout code
-        uses: actions/checkout@v3
-
       - name: Run PowerShell script
         shell: pwsh
         run: |
