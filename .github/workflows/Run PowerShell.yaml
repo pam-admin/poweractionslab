@@ -9,6 +9,15 @@ jobs:
   run-powershell:
     runs-on: ubuntu-latest # Or 'windows-latest' if you need a Windows environment
     steps:
+    
+      - name: Script
+        run: |
+          Set-PSRepository PSGallery -InstallationPolicy Trusted
+          Install-Module -Name Microsoft.PowerApps.Administration.PowerShell -Force
+          Install-Module Microsoft.PowerApps.PowerShell -Force
+          Install-Module Microsoft.Xrm.Data.PowerShell -Force
+        shell: pwsh
+        
       - name: Checkout code
         uses: actions/checkout@v3
 
